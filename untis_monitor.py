@@ -114,7 +114,7 @@ def fetch_timetable() -> dict[int, dict[str, Any]]:
     timetable_data: dict[int, dict[str, Any]] = {}
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-gpu"])
         ctx = browser.new_context(
             viewport={"width": 1280, "height": 800},
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
