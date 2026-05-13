@@ -5,4 +5,4 @@ set -e
 pip install -r requirements.txt
 
 # Install Playwright Chromium (system deps not available in build env)
-python -m playwright install chromium
+python -m playwright install chromium chromium-headless-shell
