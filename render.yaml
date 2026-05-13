@@ -24,3 +24,5 @@ services:
         value: INFO
       - key: CACHE_FILE
         value: /tmp/timetable_cache.json
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: "0"

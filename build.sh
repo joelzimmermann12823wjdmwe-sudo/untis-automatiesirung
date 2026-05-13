@@ -4,5 +4,8 @@ set -e
 # Python dependencies
 pip install -r requirements.txt
 
-# Install Playwright Chromium (system deps not available in build env)
-python -m playwright install chromium chromium-headless-shell
+# Playwright browsers in project venv speichern (damit sie deployed werden)
+export PLAYWRIGHT_BROWSERS_PATH=0
+
+# Install Playwright Chromium (headless shell wird automatisch mitinstalliert)
+python -m playwright install chromium
