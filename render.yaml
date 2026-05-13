@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: untis-monitor
+    env: python
+    buildCommand: bash build.sh
+    startCommand: python app.py
+    healthCheckPath: /health
+    envVars:
+      - key: WEBUNTIS_SERVER
+        value: obs-winsen.webuntis.com
+      - key: WEBUNTIS_SCHOOL
+        value: obs-winsen
+      - key: WEBUNTIS_USER
+        value: joel.zimmermann
+      - key: ISERV_SERVER
+        value: schuleimallertal.de
+      - key: ISERV_PASSWORD
+        sync: false
+      - key: NTFY_TOPIC
+        value: untis-joel-zimmermann
+      - key: POLL_INTERVAL
+        value: "120"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: CACHE_FILE
+        value: /tmp/timetable_cache.json
