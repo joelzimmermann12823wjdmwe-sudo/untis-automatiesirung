@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-# Python dependencies
 pip install -r requirements.txt
 
-# Playwright browsers in project venv speichern (damit sie deployed werden)
-export PLAYWRIGHT_BROWSERS_PATH=0
+# Browser-Pfad innerhalb des Projekts (wird mit deployt)
+export PLAYWRIGHT_BROWSERS_PATH=/opt/render/project/.playwright
 
-# Install Playwright Chromium (headless shell wird automatisch mitinstalliert)
+# Alten Build-Cache ignorieren, damit PLAYWRIGHT_BROWSERS_PATH wirkt
+rm -rf /opt/render/.cache/ms-playwright 2>/dev/null || true
+
+# Chromium + headless shell + FFmpeg frisch herunterladen
 python -m playwright install chromium

@@ -25,4 +25,4 @@ services:
       - key: CACHE_FILE
         value: /tmp/timetable_cache.json
       - key: PLAYWRIGHT_BROWSERS_PATH
-        value: "0"
+        value: /opt/render/project/.playwright
